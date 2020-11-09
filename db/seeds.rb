@@ -259,3 +259,15 @@ plants = [
   ]
 
 plants.each {|plant| Plant.create(plant)}
+
+# create_table "users", force: :cascade do |t|
+#   t.string "email"
+#   t.string "name"
+#   t.string "password_digest"
+#   t.string "address"
+#   t.string "phone"
+#   t.datetime "created_at", precision: 6, null: false
+#   t.datetime "updated_at", precision: 6, null: false
+# end
+
+user1 = User.create(email: 'test@email.com', name: 'testuser', password:'abc123', password_confirmation:'abc123', address:'1234 First St', phone:'1234567890')
