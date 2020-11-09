@@ -1,6 +1,7 @@
 class FavoritesController < ApplicationController
     def create
-        if Plant.find(params.favorite.plant_id) && User.find(params.favorite.user_id)
+        print params
+        if Plant.find(params[:favorite][:plant_id]) && User.find(params[:favorite][:plant_id])
             new_favorite = Favorite.create(favorite_params)
         else 
             new_favorite = favorite_params

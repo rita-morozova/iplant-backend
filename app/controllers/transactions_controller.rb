@@ -1,6 +1,6 @@
 class TransactionsController < ApplicationController
     def create
-        if Plant.find(params.transaction.plant_id) && User.find(params.transaction.user_id)
+        if Plant.find(params[:transaction][:plant_id]) && User.find(params[:transaction][:user_id])
             new_transaction = Transaction.create(transaction_params)
         else 
             new_transaction = nil
