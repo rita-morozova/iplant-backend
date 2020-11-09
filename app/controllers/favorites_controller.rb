@@ -3,7 +3,7 @@ class FavoritesController < ApplicationController
         if Plant.find(params.favorite.plant_id) && User.find(params.favorite.user_id)
             new_favorite = Favorite.create(favorite_params)
         else 
-            new_favorite = nil
+            new_favorite = favorite_params
         end
         render json: new_favorite
     end
