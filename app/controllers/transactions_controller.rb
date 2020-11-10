@@ -8,6 +8,11 @@ class TransactionsController < ApplicationController
         render json: new_transaction.to_json(include: :plant, except:[:user_id, :plant_id, :created_at, :updated_at])
     end
 
+    def destroy
+        transacation = Transaction.find(params[:id])
+        transaction.destroy
+        render json: transaction
+
     private
 
     def transaction_params
