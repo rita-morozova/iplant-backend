@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
     def show
         user = User.find(params[:id])
-        render json: user.to_json(include: {favorites: {include: :plant, except:[:user_id, :plant_id, :created_at, :updated_at]}, transactions: {include: :plant}})
+        render json: user.to_json(include: {favorites: {include: :plant, except:[:user_id, :plant_id, :created_at, :updated_at]}, transactions: {include: :plant, except:[:user_id, :plant_id, :created_at, :updated_at]}})
     end
 
     def create
