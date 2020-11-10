@@ -12,7 +12,8 @@ class TransactionsController < ApplicationController
         transaction = Transaction.find(params[:id])
         transaction.destroy
         render json: transaction
-
+    end
+    
     private
 
     def transaction_params
