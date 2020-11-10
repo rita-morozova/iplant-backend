@@ -9,7 +9,7 @@ class TransactionsController < ApplicationController
     end
 
     def destroy
-        transacation = Transaction.find(params[:id])
+        transaction = Transaction.find(params[:id])
         transaction.destroy
         render json: transaction
 
