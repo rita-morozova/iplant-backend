@@ -5,7 +5,7 @@ class TransactionsController < ApplicationController
         else 
             new_transaction = nil
         end
-        render json: new_transaction
+        render json: new_transaction.to_json(include: :plant, except:[:user_id, :plant_id, :created_at, :updated_at])
     end
 
     private
