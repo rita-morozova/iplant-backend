@@ -13,6 +13,13 @@ class UsersController < ApplicationController
         end
     end
 
+    def update
+        user = User.find(params[:id])
+        return head(:forbidden) unless user.authenticate(params[:password])
+        user.update(user_params)
+        render json: user.to_json(include: {favorites: {include: :plant, except:[:user_id, :plant_id, :created_at, :updated_at]}, transactions: {include: :plant, except:[:user_id, :plant_id, :created_at, :updated_at]}}, except: [:password_digest, :created_at, :updated_at])
+    end
+
     private
 
     def user_params
